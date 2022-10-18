@@ -1,0 +1,8 @@
+NumberPlateData #class
+number.plate #namespace
+personInformation number.plate.PersonInformation #field
+personInformation PERSISTENT #fieldModifier
+motoBikeInformation number.plate.MotoBikeInformation #field
+motoBikeInformation PERSISTENT #fieldModifier
+plateNumber List<String> #field
+plateNumber PERSISTENT #fieldModifier

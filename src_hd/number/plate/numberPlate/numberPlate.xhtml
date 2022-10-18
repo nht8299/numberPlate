@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-10.xhtml">
+		<ui:define name="title">numberPlate</ui:define>
+		<ui:define name="content">
+			<div class="header">
+				<h1
+					style="font-family: 'Quicksand', sans-serif; font-size: 20px; text-align: center;">iMOTOBIKE
+					NUMBER PLATE</h1>
+			</div>
+			<hr />
+			<h:form id="form">
+				<p:messages />
+				<div class="p-d-flex p-flex-column p-flex-md-row">
+					<ic:motobike.number.PersionalInformationComponent
+						address="#{data.user.personalInformation}"
+						id="personalInformationComponent"></ic:motobike.number.PersionalInformationComponent>
+					<ic:motobike.number.MotobikeInformationComponent
+						address="#{data.user.motobikeInformation}"
+						id="motobikeInformationComponent"></ic:motobike.number.MotobikeInformationComponent>
+
+				</div>
+				<div class="p-d-flex p-flex-column p-flex-md-row">
+					<p:fieldset legend="Motobike Information" id="motobikeInformation"
+						style="width: 100%;">
+						<div class="box"
+							style="font-size: 20px; border: 1px solid; border-radius: 5px; width: 500px; margin: 0px auto; height: 100px; text-align: center; width: 100%; line-height: 100px">
+						</div>
+					</p:fieldset>
+				</div>
+				<br />
+				<div class="p-d-flex p-jc-center">
+					<p:commandButton id="generate" actionListener="#{logic.submitUser}"
+						value="generate" update="form" icon="pi pi-check"
+						partialSubmit="true" />
+					<p:commandButton id="proceed" actionListener="#{logic.submitUser}"
+						value="Proceed" update="form" icon="pi pi-check"
+						partialSubmit="true" />
+				</div>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
