@@ -1,2 +1,4 @@
 numberPlateData #class
 number.plate.numberPlate #namespace
+numberPlate number.plate.NumberPlateData #field
+numberPlate PERSISTENT #fieldModifier

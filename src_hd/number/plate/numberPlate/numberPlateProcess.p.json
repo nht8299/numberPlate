@@ -16,12 +16,12 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : { "id" : "f7", "to" : "f6" }
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 352, "y" : 64 }
       }
     }, {
       "id" : "f3",
@@ -38,7 +38,63 @@
       "id" : "f4",
       "type" : "HtmlDialogExit",
       "visual" : {
-        "at" : { "x" : 224, "y" : 160 }
+        "at" : { "x" : 344, "y" : 160 }
       }
+    }, {
+      "id" : "f6",
+      "type" : "Script",
+      "name" : "innit data",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import number.plate.NumberPlateData;",
+            "",
+            "NumberPlateData numberPlateDate = in.numberPlate;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 248 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "ivy.log.info(\"Full name: {0}\", in.numberPlate.personInformation.fullName);",
+            "ivy.log.info(\"Id: {0}\", in.numberPlate.personInformation.id);",
+            "ivy.log.info(\"Birthday: {0}\", in.numberPlate.personInformation.birthday);",
+            "ivy.log.info(\"Email: {0}\", in.numberPlate.personInformation.email);",
+            "ivy.log.info(\"Types: {0}\", in.numberPlate.motoBikeInformation.types);",
+            "ivy.log.info(\"Chassic Number: {0}\", in.numberPlate.motoBikeInformation.chassisNumber);",
+            "ivy.log.info(\"Chassic Frame Number\", in.numberPlate.motoBikeInformation.chassisFrameNumber);",
+            "ivy.log.info(\"Description\", in.numberPlate.motoBikeInformation.description);",
+            "ivy.log.info(\"Plate Number: {0}\", in.numberPlate.plateNumber);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 248 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f13",
+      "type" : "HtmlDialogEventStart",
+      "name" : "printOutInformation",
+      "config" : {
+        "guid" : "183EBE4C9DC6BB2A"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 248 }
+      },
+      "connect" : { "id" : "f8", "to" : "f11" }
     } ]
 }

@@ -18,12 +18,12 @@
 			<h:form id="form">
 				<p:messages />
 				<div class="p-d-flex p-flex-column p-flex-md-row">
-					<ic:motobike.number.PersionalInformationComponent
-						address="#{data.user.personalInformation}"
-						id="personalInformationComponent"></ic:motobike.number.PersionalInformationComponent>
-					<ic:motobike.number.MotobikeInformationComponent
-						address="#{data.user.motobikeInformation}"
-						id="motobikeInformationComponent"></ic:motobike.number.MotobikeInformationComponent>
+					<ic:number.plate.PersionalInformationComponent
+						address="#{data.numberPlate.personInformation}"
+						id="personalInformationComponent"></ic:number.plate.PersionalInformationComponent>
+					<ic:number.plate.MotoBikeInformation
+						address="#{data.numberPlate.motoBikeInformation}"
+						id="motobikeInformationComponent"></ic:number.plate.MotoBikeInformation>
 
 				</div>
 				<div class="p-d-flex p-flex-column p-flex-md-row">
@@ -36,10 +36,10 @@
 				</div>
 				<br />
 				<div class="p-d-flex p-jc-center">
-					<p:commandButton id="generate" actionListener="#{logic.submitUser}"
+					<p:commandButton id="generate" actionListener="#{logic.close}"
 						value="generate" update="form" icon="pi pi-check"
 						partialSubmit="true" />
-					<p:commandButton id="proceed" actionListener="#{logic.submitUser}"
+					<p:commandButton id="proceed" actionListener="#{logic.printOutInformation}"
 						value="Proceed" update="form" icon="pi pi-check"
 						partialSubmit="true" />
 				</div>
