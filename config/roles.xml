@@ -4,4 +4,7 @@
     <role>
         <identifier>Policement</identifier>
     </role>
+    <role>
+        <identifier>User</identifier>
+    </role>
 </role>

@@ -19,12 +19,15 @@
             "result.personInformation" : "in.personalInformation"
           }
         },
-        "guid" : "183EBB6CDEB49442",
         "input" : {
           "params" : [
             { "name" : "personInformation", "type" : "number.plate.PersonInformation" }
-          ]
-        }
+          ],
+          "map" : {
+            "out.personalInformation" : "param.personInformation"
+          }
+        },
+        "guid" : "183EBB6CDEB49442"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -34,7 +37,7 @@
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 376, "y" : 64 }
       }
     }, {
       "id" : "f3",

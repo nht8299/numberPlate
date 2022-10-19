@@ -1,0 +1,4 @@
+BikePlateNumberData #class
+number.plate #namespace
+numberPlateData number.plate.NumberPlateData #field
+numberPlateData PERSISTENT #fieldModifier

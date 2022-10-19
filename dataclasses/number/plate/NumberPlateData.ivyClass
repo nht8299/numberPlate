@@ -4,5 +4,7 @@ personInformation number.plate.PersonInformation #field
 personInformation PERSISTENT #fieldModifier
 motoBikeInformation number.plate.MotoInformation #field
 motoBikeInformation PERSISTENT #fieldModifier
-plateNumber List<String> #field
+plateNumber String #field
 plateNumber PERSISTENT #fieldModifier
+isApprove Boolean #field
+isApprove PERSISTENT #fieldModifier

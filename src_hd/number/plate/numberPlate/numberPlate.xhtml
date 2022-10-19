@@ -19,29 +19,33 @@
 				<p:messages />
 				<div class="p-d-flex p-flex-column p-flex-md-row">
 					<ic:number.plate.PersionalInformationComponent
+						personInformation="#{data.numberPlate.personInformation}"
 						address="#{data.numberPlate.personInformation}"
 						id="personalInformationComponent"></ic:number.plate.PersionalInformationComponent>
 					<ic:number.plate.MotoBikeInformation
+						motoBikeInformation="#{data.numberPlate.motoBikeInformation}"
 						address="#{data.numberPlate.motoBikeInformation}"
 						id="motobikeInformationComponent"></ic:number.plate.MotoBikeInformation>
-
 				</div>
 				<div class="p-d-flex p-flex-column p-flex-md-row">
-					<p:fieldset legend="Motobike Information" id="motobikeInformation"
+					<p:fieldset legend="Request Number Plate" 
 						style="width: 100%;">
 						<div class="box"
 							style="font-size: 20px; border: 1px solid; border-radius: 5px; width: 500px; margin: 0px auto; height: 100px; text-align: center; width: 100%; line-height: 100px">
+							<p:outputLabel value="#{data.numberPlate.plateNumber}"
+								style="font-size:60px; font-family: 'font-family: 'Quicksand', sans-serif;"></p:outputLabel>
 						</div>
 					</p:fieldset>
 				</div>
 				<br />
 				<div class="p-d-flex p-jc-center">
-					<p:commandButton id="generate" actionListener="#{logic.close}"
-						value="generate" update="form" icon="pi pi-check"
-						partialSubmit="true" />
-					<p:commandButton id="proceed" actionListener="#{logic.printOutInformation}"
-						value="Proceed" update="form" icon="pi pi-check"
-						partialSubmit="true" />
+					<p:commandButton id="generate" styleClass="ui-button-warning" style="margin:10px;"
+						actionListener="#{logic.generateNumber}" value="generate" 
+						update="form" icon="fa-solid fa-random" partialSubmit="true"
+						disabled="#{data.disableGenerate}" />
+					<p:commandButton id="proceed" style="margin:10px;"
+						actionListener="#{logic.submit}" value="Proceed"
+						update="form" icon="pi pi-check" partialSubmit="true" disabled="#{!data.disableGenerate}" />
 				</div>
 			</h:form>
 

@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>PoliceOfficer</username>
+        <role>Policement</role>
+    </user>
+    <user>
+        <username>User</username>
+        <role>User</role>
+    </user>
+</userConfig>

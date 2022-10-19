@@ -1,0 +1,148 @@
+{
+  "format" : "10.0.0",
+  "id" : "183EF804BE8804AE",
+  "config" : {
+    "data" : "number.plate.BikePlateNumberData"
+  },
+  "elements" : [ {
+      "id" : "f3",
+      "type" : "RequestStart",
+      "name" : "BikePlateGenerate.ivp",
+      "config" : {
+        "callSignature" : "BikePlateGenerate",
+        "outLink" : "BikePlateGenerate.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 328 }
+      },
+      "connect" : { "id" : "f2", "to" : "f0" }
+    }, {
+      "id" : "f0",
+      "type" : "DialogCall",
+      "name" : "numberPlate",
+      "config" : {
+        "dialogId" : "number.plate.numberPlate",
+        "startMethod" : "start()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.numberPlateData" : "result.numberPlateDate"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 240, "y" : 328 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "Script",
+      "name" : "Print out Information",
+      "config" : {
+        "output" : {
+          "code" : [
+            "ivy.log.info(\"Full name: {0}\", in.numberPlateData.personInformation.fullName);",
+            "ivy.log.info(\"Id: {0}\", in.numberPlateData.personInformation.id);",
+            "ivy.log.info(\"Birthday: {0}\", in.numberPlateData.personInformation.birthday);",
+            "ivy.log.info(\"Email: {0}\", in.numberPlateData.personInformation.email);",
+            "ivy.log.info(\"Address: {0}\", in.numberPlateData.personInformation.address);",
+            "ivy.log.info(\"Types: {0}\", in.numberPlateData.motoBikeInformation.types);",
+            "ivy.log.info(\"Chassic Number: {0}\", in.numberPlateData.motoBikeInformation.chassisNumber);",
+            "ivy.log.info(\"Chassic Frame Number\", in.numberPlateData.motoBikeInformation.chassisFrameNumber);",
+            "ivy.log.info(\"Description\", in.numberPlateData.motoBikeInformation.description);",
+            "ivy.log.info(\"Plate Number: {0}\", in.numberPlateData.plateNumber);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 424, "y" : 328 }
+      },
+      "connect" : { "id" : "f1", "to" : "f7", "via" : [ { "x" : 424, "y" : 400 }, { "x" : 112, "y" : 400 } ] }
+    }, {
+      "id" : "f7",
+      "type" : "UserTask",
+      "name" : "Approval for new motobike number plate",
+      "config" : {
+        "dialogId" : "number.plate.approvalDialog",
+        "startMethod" : "start(number.plate.NumberPlateData)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.numberPlateData" : "result.numberPlateData"
+          }
+        },
+        "task" : {
+          "name" : "Approve Motobike Plate Number: <%=in.numberPlateData.plateNumber%>",
+          "responsible" : {
+            "role" : "Policement"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "numberPlateData", "type" : "number.plate.NumberPlateData" }
+          ],
+          "map" : {
+            "param.numberPlateData" : "in.numberPlateData"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 112, "y" : 520 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f4",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 712, "y" : 520 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "Alternative",
+      "name" : "is Approve?",
+      "visual" : {
+        "at" : { "x" : 576, "y" : 520 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f4", "label" : {
+            "name" : "Yes",
+            "offset" : { "x" : -3, "y" : -2 }
+          }, "condition" : "in.numberPlateData.isApprove" },
+        { "id" : "f12", "to" : "f11", "label" : {
+            "name" : "No"
+          } }
+      ]
+    }, {
+      "id" : "f11",
+      "type" : "TaskSwitchEvent",
+      "config" : {
+        "task" : {
+          "name" : "Re-edit Infomation Of Motobike Plate Number: <%=in1.numberPlateData.plateNumber%>"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 576, "y" : 328 }
+      },
+      "connect" : { "id" : "f13", "to" : "f0", "via" : [ { "x" : 576, "y" : 256 }, { "x" : 240, "y" : 256 } ] }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "BikePlateNumber",
+        "offset" : 224,
+        "size" : 384,
+        "lanes" : [ {
+            "name" : "Everyone",
+            "size" : 192,
+            "color" : "r"
+          }, {
+            "size" : 192,
+            "color" : "b"
+          } ]
+      } ],
+    "colors" : {
+      "r" : "#ff0000",
+      "b" : "#0000ff"
+    }
+  }
+}

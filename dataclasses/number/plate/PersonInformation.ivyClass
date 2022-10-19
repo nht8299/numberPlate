@@ -8,3 +8,5 @@ birthday java.util.Date #field
 birthday PERSISTENT #fieldModifier
 email String #field
 email PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier

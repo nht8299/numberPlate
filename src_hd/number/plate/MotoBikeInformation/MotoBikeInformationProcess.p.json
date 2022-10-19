@@ -13,10 +13,10 @@
         "callSignature" : "start",
         "result" : {
           "params" : [
-            { "name" : "motobikeInformation", "type" : "number.plate.MotoInformation" }
+            { "name" : "motoBikeInformation", "type" : "number.plate.MotoInformation" }
           ],
           "map" : {
-            "result.motobikeInformation" : "in.motoBikeInformation"
+            "result.motoBikeInformation" : "in.motoBikeInformation"
           }
         },
         "input" : {
@@ -37,7 +37,7 @@
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 336, "y" : 64 }
+        "at" : { "x" : 352, "y" : 64 }
       }
     }, {
       "id" : "f3",

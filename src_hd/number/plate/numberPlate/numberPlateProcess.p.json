@@ -11,6 +11,14 @@
       "name" : "start()",
       "config" : {
         "callSignature" : "start",
+        "result" : {
+          "params" : [
+            { "name" : "numberPlateDate", "type" : "number.plate.NumberPlateData" }
+          ],
+          "map" : {
+            "result.numberPlateDate" : "in.numberPlate"
+          }
+        },
         "guid" : "183EAA3F40334B79"
       },
       "visual" : {
@@ -26,7 +34,7 @@
     }, {
       "id" : "f3",
       "type" : "HtmlDialogEventStart",
-      "name" : "close",
+      "name" : "submit",
       "config" : {
         "guid" : "183EAA3F409322EB"
       },
@@ -49,7 +57,8 @@
           "code" : [
             "import number.plate.NumberPlateData;",
             "",
-            "NumberPlateData numberPlateDate = in.numberPlate;"
+            "NumberPlateData numberPlateData = new number.plate.NumberPlateData();",
+            "in.disableGenerate = false;"
           ]
         }
       },
@@ -96,5 +105,37 @@
         "at" : { "x" : 96, "y" : 248 }
       },
       "connect" : { "id" : "f8", "to" : "f11" }
+    }, {
+      "id" : "f12",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "generateNumber()",
+      "config" : {
+        "callSignature" : "generateNumber",
+        "result" : {
+          "params" : [
+            { "name" : "numberPlate", "type" : "number.plate.NumberPlateData" }
+          ],
+          "map" : {
+            "result.numberPlate" : "in.numberPlate"
+          }
+        },
+        "input" : {
+          "map" : {
+            "out.disableGenerate" : "true",
+            "out.numberPlate.plateNumber" : "data.generator.PlateGenerator.generatePlate()"
+          }
+        },
+        "guid" : "183EF0DCEC9E7CB4"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 376 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 376 }
+      }
     } ]
 }

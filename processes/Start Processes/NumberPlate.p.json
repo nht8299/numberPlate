@@ -34,5 +34,35 @@
         "at" : { "x" : 248, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "BikePlateNumber.ivp",
+      "config" : {
+        "callSignature" : "BikePlateNumber",
+        "outLink" : "BikePlateNumber.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 368 }
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 456, "y" : 368 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "DialogCall",
+      "name" : "numberPlate",
+      "config" : {
+        "dialogId" : "number.plate.numberPlate",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 368 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
     } ]
 }

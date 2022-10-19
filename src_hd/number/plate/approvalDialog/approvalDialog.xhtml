@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-10.xhtml">
+		<ui:define name="title">approvalDialog</ui:define>
+		<ui:define name="content">
+
+			<div class="header">
+				<h1
+					style="font-family: 'Quicksand', sans-serif; font-size: 20px; text-align: center;">iMOTOBIKE
+					NUMBER PLATE</h1>
+			</div>
+			<hr />
+			<h:form id="form">
+				<p:messages />
+				<div class="p-d-flex p-flex-column p-flex-md-row">
+					<div class="p-mb-2 p-mr-2" style="width: 100%">
+						<p:fieldset legend="Personal Information" id="personalInformation"
+							style="height:100%;">
+							<h:outputText>#{cc.attrs.label}</h:outputText>
+							<h:panelGrid columnClasses="label-top" style="width:100%;"
+								id="personalInformationPanel">
+								<p:panelGrid columns="2" layout="grid"
+									styleClass="ui-panelgrid-blank ui-fluid">
+									<p:outputLabel value="fullname: "></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.personInformation.fullName}"></p:outputLabel>
+									<p:outputLabel value="ID: "></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.personInformation.id}"></p:outputLabel>
+									<p:outputLabel value="Birthday: "></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.personInformation.birthday}">
+									</p:outputLabel>
+									<p:outputLabel value="Email: "></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.personInformation.email}" />
+									<p:outputLabel value="Address: "></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.personInformation.address}"></p:outputLabel>
+									<br />
+								</p:panelGrid>
+							</h:panelGrid>
+						</p:fieldset>
+					</div>
+					<div class="p-mb-2 " style="width: 100%">
+						<p:fieldset legend="Motobike Information" style="height:100%;">
+							<h:outputText>#{cc.attrs.label}</h:outputText>
+							<h:panelGrid style="width:100%;" columnClasses="label-top"
+								id="motobikeInformationPanel">
+								<p:panelGrid columns="2" layout="grid"
+									styleClass="ui-panelgrid-blank ui-fluid">
+									<p:outputLabel value="Type"></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.motoBikeInformation.types}"></p:outputLabel>
+									<p:outputLabel value="Chassis Number"></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.motoBikeInformation.chassisNumber}"></p:outputLabel>
+									<p:outputLabel value="Chassis Frame Number"></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.motoBikeInformation.chassisFrameNumber}"></p:outputLabel>
+									<p:outputLabel value="Description"></p:outputLabel>
+									<p:outputLabel
+										value="#{data.numberPlateData.motoBikeInformation.description}">
+									</p:outputLabel>
+									<br />
+								</p:panelGrid>
+							</h:panelGrid>
+						</p:fieldset>
+					</div>
+				</div>
+				<div class="p-d-flex p-flex-column p-flex-md-row">
+					<p:fieldset legend="Approve For Number Plate" style="width: 100%;">
+						<div class="box"
+							style="font-size: 20px; border: 1px solid; border-radius: 5px; width: 500px; margin: 0px auto; height: 100px; text-align: center; width: 100%; line-height: 100px">
+							<p:outputLabel value="#{data.numberPlateData.plateNumber}"
+								style="font-size:60px; font-family: 'font-family: 'Quicksand', sans-serif;"></p:outputLabel>
+						</div>
+					</p:fieldset>
+				</div>
+				<br />
+
+				<div class="card p-d-flex p-jc-center">
+					<h:form>
+						<p:growl id="message" showDetail="true" />
+
+						<p:commandButton value="Reject" action="#{comfirmView.reject}"
+							style="margin:10px;" update="message"
+							styleClass="ui-button-danger" icon="pi pi-times">
+							<p:confirm header="Confirmation"
+								message="Do you want to approve this request"
+								icon="pi pi-info-circle" />
+						</p:commandButton>
+						
+						<p:commandButton value="Confirm" action="#{comfirmView.approve}" style="margin:10px;"
+							update="message" styleClass="mr-2" icon="pi pi-check">
+							<p:confirm header="Confirmation"
+								message="Do you want to reject this request?"
+								icon="pi pi-exclamation-triangle" />
+						</p:commandButton>
+
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+							responsive="true" width="350">
+							<p:commandButton value="No" type="button"
+								styleClass="ui-confirmdialog-no ui-button-flat" />
+							<p:commandButton value="Yes" type="button"
+								styleClass="ui-confirmdialog-yes" />
+						</p:confirmDialog>
+					</h:form>
+				</div>
+			</h:form>
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

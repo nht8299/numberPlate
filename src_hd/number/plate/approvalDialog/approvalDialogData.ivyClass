@@ -1,0 +1,4 @@
+approvalDialogData #class
+number.plate.approvalDialog #namespace
+numberPlateData number.plate.NumberPlateData #field
+numberPlateData PERSISTENT #fieldModifier

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.RandomStringUtils;
 public class PlateGenerator {
 	
-	 public static List<String> generatePlate(){
+	 public static String generatePlate(){
 	        List<Integer>plateNumberIndex = Arrays.asList(0,1,3,5,6,7,9,10);
 	        ArrayList<String> plate = new ArrayList<>();
 	        for (int i = 0;i < 11; i++ ){
@@ -23,7 +23,7 @@ public class PlateGenerator {
 	                plate.add(".");
 	            }
 	        }
-	        return plate;
+	        return String.join(" ", plate);
 
 	    }
 	    public static String generateNumber(){
