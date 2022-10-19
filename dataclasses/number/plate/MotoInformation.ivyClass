@@ -1,0 +1,10 @@
+MotoInformation #class
+number.plate #namespace
+types String #field
+types PERSISTENT #fieldModifier
+chassisNumber String #field
+chassisNumber PERSISTENT #fieldModifier
+chassisFrameNumber String #field
+chassisFrameNumber PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier

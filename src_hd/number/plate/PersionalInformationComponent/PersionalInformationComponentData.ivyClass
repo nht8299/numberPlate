@@ -1,0 +1,4 @@
+PersionalInformationComponentData #class
+number.plate.PersionalInformationComponent #namespace
+personalInformation number.plate.PersonInformation #field
+personalInformation PERSISTENT #fieldModifier
